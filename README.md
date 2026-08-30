@@ -171,6 +171,8 @@ At every stage, the project may stop and keep the best classical solution. A qua
 - [Hybrid neural–quantum design](docs/03-hybrid-quantum-design.md)
 - [PoC and commercialization strategy](docs/04-poc-and-commercialization.md)
 - [Prior art and related work](docs/05-prior-art.md)
+- [Learning and design notes](docs/06-learning-and-design-notes.md)
+- [Implementation roadmap](ROADMAP.md)
 
 ## Current status
 
