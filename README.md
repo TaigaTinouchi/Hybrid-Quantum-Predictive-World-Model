@@ -14,6 +14,35 @@ The starting idea is simple:
 
 The project therefore focuses on a **profitable predictive world model**, not on using quantum computing for its own sake.
 
+## Commercial utility over research novelty
+
+This project is intentionally **business-first and economically motivated**.
+
+Academic novelty is useful when it creates an advantage, but it is not a goal by itself. Established research should be reused aggressively when it provides a measurable commercial edge.
+
+The priority order is:
+
+```text
+measurable economic value
+> reproducible predictive / decision advantage
+> implementation and deployment quality
+> academic novelty
+```
+
+A mechanism is valuable to this project even if it is already well known academically, provided it can be turned into better forecasts, earlier detection, better allocation of capital or attention, lower costs, stronger product decisions, or another monetizable outcome.
+
+Examples include:
+
+- attention-driven demand and asset-price signals,
+- early detection of social or technology adoption,
+- de facto standard / platform tipping detection,
+- narrative-sensitive risk and macro forecasting,
+- marketing and product-launch allocation,
+- procurement, hedging, and inventory decisions,
+- classical / tensor-network / QPU backend selection by total economic value.
+
+The project should therefore treat prior research primarily as **validated engineering substrate**, not as something that must be avoided in order to preserve novelty.
+
 ## Core formulation
 
 Let the observation history up to time `t` be `h_t`. We want a state `z_t` such that
@@ -75,6 +104,24 @@ The key design problem becomes:
 If the event representation is too fine, the model simply memorizes the original trajectory. If it is too coarse, discarded context can reappear as memory, path dependence, or effective non-commutativity between event operators.
 
 The project therefore treats event granularity as a learnable rate-distortion problem rather than a fixed ontology.
+
+## Social attention and reflexive dynamics
+
+Human systems have an additional layer: **social attention can change the effect of an event**.
+
+The same semantic content may have very different consequences depending on whether it is ignored, broadcast widely, discussed across communities, imitated, adopted, or turned into a coordination point.
+
+A richer update is therefore
+
+```math
+z_{t+1}=F(z_t,e_t,a_e(t),n_e(t),r_e(t)),
+```
+
+where `a_e(t)` is social attention, `n_e(t)` is adoption / installed base, and `r_e(t)` represents public salience or coordination visibility.
+
+The commercial question is not whether social contagion or network effects are novel. They are well-established research areas. The useful question is:
+
+> Can attention and adoption dynamics predict demand, prices, narratives, platform tipping, or de facto standards early enough to create economic value?
 
 ## Hybrid quantum hypothesis
 
@@ -187,8 +234,9 @@ At every stage, the project may stop and keep the best classical solution. A qua
 - [Prior art and related work](docs/05-prior-art.md)
 - [Learning and design notes](docs/06-learning-and-design-notes.md)
 - [Event semantics, coarse-graining, and non-commutativity](docs/07-event-semantics-and-coarse-graining.md)
+- [Social attention and reflexive dynamics](docs/08-social-attention-and-reflexive-dynamics.md)
 - [Implementation roadmap](ROADMAP.md)
 
 ## Current status
 
-This repository currently documents the architecture and hypotheses developed through exploratory discussion. The next engineering milestone is a small classical-first PoC with a pluggable `WorldState` backend, including a controlled experiment on learned event granularity, followed by a 4–8 qubit quantum-compatible implementation and tensor-network comparison.
+This repository currently documents the architecture and hypotheses developed through exploratory discussion. The next engineering milestone is a small classical-first PoC with a pluggable `WorldState` backend, including controlled experiments on learned event granularity and social-attention/adoption signals, followed by a 4–8 qubit quantum-compatible implementation and tensor-network comparison.
