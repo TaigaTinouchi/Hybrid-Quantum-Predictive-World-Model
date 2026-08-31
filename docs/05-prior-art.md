@@ -1,6 +1,8 @@
 # Prior Art and Related Work
 
-This document summarizes the major research and commercial areas that overlap with the project. The goal is not to establish academic novelty, but to understand which ideas already exist and which components can be reused.
+This document summarizes the major research and commercial areas that overlap with the project. The goal is **not** to establish academic novelty. The goal is to identify validated mechanisms, reusable methods, and commercially useful building blocks.
+
+A research area being mature is not a negative result for this project. If an established mechanism can improve prediction, decision quality, product strategy, or economic value, it should be reused aggressively.
 
 ## 1. Predictive state and stochastic modeling
 
@@ -188,7 +190,99 @@ This provides a conceptual precedent for learning event boundaries from surprise
 
 The project-specific synthesis is to combine predictive compression, learned event segmentation, reduced-state closure, and learned structured event operators in one pipeline.
 
-## 11. Representative prior-art areas for deeper review
+## 11. Social attention, contagion, narratives, and adoption
+
+The hypothesis that social attention can become self-reinforcing and economically consequential has extensive prior work.
+
+This is commercially useful rather than disqualifying: it means the mechanism is sufficiently established to justify treating attention as a candidate state variable.
+
+### Social influence and endogenous popularity
+
+Salganik, Dodds, and Watts, **Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market** (Science, 2006), showed experimentally that visible previous choices increase inequality and unpredictability of success.
+
+- DOI: https://doi.org/10.1126/science.1121066
+
+Muchnik, Aral, and Taylor, **Social Influence Bias: A Randomized Experiment** (Science, 2013), showed that randomly manipulated early positive ratings causally induce further positive herding.
+
+- DOI: https://doi.org/10.1126/science.1240466
+
+Aral and Walker, **Creating Social Contagion Through Viral Product Design** (Management Science, 2011), showed in a randomized Facebook field experiment that viral product features can causally increase peer adoption.
+
+- DOI: https://doi.org/10.1287/mnsc.1110.1421
+
+Commercial implication:
+
+> Popularity and visibility can be inputs to future behavior, not merely passive measurements of intrinsic quality.
+
+### Limited attention and viral diffusion
+
+Weng et al., **Competition among memes in a world with limited attention** (Scientific Reports, 2012), showed that finite attention and network structure can generate large popularity differences without requiring large differences in intrinsic content value.
+
+- DOI: https://doi.org/10.1038/srep00335
+
+Goel et al., **The Structural Virality of Online Diffusion** (Management Science, 2016), distinguish broadcast-driven popularity from multi-generation viral diffusion.
+
+- DOI: https://doi.org/10.1287/mnsc.2015.2158
+
+Commercial implication:
+
+> Attention share, velocity, persistence, cascade structure, and cross-network penetration may be more useful features than raw mention count.
+
+### Investor attention
+
+Barber and Odean, **All That Glitters** (Review of Financial Studies, 2008), find that retail investors disproportionately buy attention-grabbing stocks.
+
+- DOI: https://doi.org/10.1093/rfs/hhm079
+
+Da, Engelberg, and Gao, **In Search of Attention** (Journal of Finance, 2011), use Google search frequency as a direct attention measure and find predictive relationships with subsequent asset prices and IPO behavior.
+
+- DOI: https://doi.org/10.1111/j.1540-6261.2011.01679.x
+
+Commercial implication:
+
+> Attention can be a measurable leading variable for economically relevant outcomes.
+
+### Narrative economics
+
+Shiller, **Narrative Economics** (American Economic Review, 2017), argues that contagious narratives can influence spending, investment, and macroeconomic fluctuations.
+
+- DOI: https://doi.org/10.1257/aer.107.4.967
+
+Flynn and Sastry, **The Macroeconomics of Narratives** (NBER Working Paper 32602, 2024), model narratives as contagious beliefs and report that firms change behavior after adopting narratives even when those narratives do not predict future firm fundamentals.
+
+- DOI: https://doi.org/10.3386/w32602
+
+Commercial implication:
+
+> In human economies, socially circulating beliefs can become part of the effective dynamics because agents act on them.
+
+### Network externalities and de facto standards
+
+Attention alone is not enough to create a standard. The next stage is adoption and coordination.
+
+Relevant foundations include:
+
+- Katz and Shapiro, **Technology Adoption in the Presence of Network Externalities** (1986), DOI: https://doi.org/10.1086/261409
+- Farrell and Saloner, **Standardization, Compatibility, and Innovation** (1985), DOI: https://doi.org/10.2307/2555589
+- Arthur, **Competing Technologies, Increasing Returns, and Lock-In by Historical Events** (1989), DOI: https://doi.org/10.2307/2234208
+
+A useful project-level chain is:
+
+```text
+attention
+→ social influence
+→ adoption
+→ installed base
+→ network value / compatibility
+→ further adoption
+→ possible lock-in or de facto standard
+```
+
+The commercially interesting target is early detection of when this loop becomes self-sustaining.
+
+See [Social attention and reflexive dynamics](08-social-attention-and-reflexive-dynamics.md) for the detailed project formulation and monetization paths.
+
+## 12. Representative prior-art areas for deeper review
 
 The following categories should be tracked continuously:
 
@@ -206,8 +300,13 @@ The following categories should be tracked continuously:
 12. Computational mechanics / causal states
 13. Mori-Zwanzig coarse-graining and memory
 14. Event segmentation and change-point discovery
+15. Collective attention and limited-attention diffusion
+16. Social influence and information cascades
+17. Narrative economics
+18. Network effects, adoption tipping, and de facto standards
+19. Attention-based market and demand forecasting
 
-## 12. Patent-search conclusion so far
+## 13. Patent-search conclusion so far
 
 A preliminary search suggests that broad claims around:
 
@@ -232,10 +331,10 @@ into a single backend-adoption decision.
 
 Patent protection is not required for the project. The immediate priority is implementation quality and monetizable prediction/decision value.
 
-## 13. Practical positioning
+## 14. Practical positioning
 
 The project should be described as an integration of established ideas rather than as a claim that every component is new.
 
 A useful positioning statement is:
 
-> A hybrid predictive world-model architecture combining classical multimodal AI, structured predictive-state dynamics, tensor-network diagnostics, and optional quantum execution, optimized for end-to-end business value.
+> A commercially oriented hybrid predictive world-model architecture that reuses validated methods from predictive-state modeling, social dynamics, classical AI, tensor networks, and quantum computing whenever they improve end-to-end economic value.
