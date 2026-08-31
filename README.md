@@ -62,6 +62,20 @@ The internal representation of `WorldState` is intentionally opaque. It may be:
 
 The external interface should remain the same.
 
+## Event semantics and coarse-graining
+
+A newer hypothesis in the project is that observed events should not be treated as primitive objects of the physical world.
+
+At an idealized microscopic level, the world follows a continuous high-dimensional trajectory. Human- or model-level events such as `rate_hike`, `bank_failure`, or `supply_shock` are **semantic coarse-grainings of trajectory segments**.
+
+The key design problem becomes:
+
+> What is the coarsest event representation that preserves predictive closure and economically relevant future information?
+
+If the event representation is too fine, the model simply memorizes the original trajectory. If it is too coarse, discarded context can reappear as memory, path dependence, or effective non-commutativity between event operators.
+
+The project therefore treats event granularity as a learnable rate-distortion problem rather than a fixed ontology.
+
 ## Hybrid quantum hypothesis
 
 One of the most interesting implementation directions is to use a classical neural network as an interface between real-world information and structured quantum dynamics:
@@ -172,8 +186,9 @@ At every stage, the project may stop and keep the best classical solution. A qua
 - [PoC and commercialization strategy](docs/04-poc-and-commercialization.md)
 - [Prior art and related work](docs/05-prior-art.md)
 - [Learning and design notes](docs/06-learning-and-design-notes.md)
+- [Event semantics, coarse-graining, and non-commutativity](docs/07-event-semantics-and-coarse-graining.md)
 - [Implementation roadmap](ROADMAP.md)
 
 ## Current status
 
-This repository currently documents the architecture and hypotheses developed through exploratory discussion. The next engineering milestone is a small classical-first PoC with a pluggable `WorldState` backend, followed by a 4–8 qubit quantum-compatible implementation and tensor-network comparison.
+This repository currently documents the architecture and hypotheses developed through exploratory discussion. The next engineering milestone is a small classical-first PoC with a pluggable `WorldState` backend, including a controlled experiment on learned event granularity, followed by a 4–8 qubit quantum-compatible implementation and tensor-network comparison.
