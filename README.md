@@ -123,6 +123,36 @@ The commercial question is not whether social contagion or network effects are n
 
 > Can attention and adoption dynamics predict demand, prices, narratives, platform tipping, or de facto standards early enough to create economic value?
 
+## Financial modeling heuristics
+
+The financial version of the World State keeps several practitioner heuristics explicitly separate from universal theoretical claims.
+
+Two current working reminders are:
+
+> **In human systems, attention is often upstream of action.**
+
+> **Do not only model what the world is. Model how the world is changing.**
+
+For financial observations, candidate state features should therefore distinguish when useful:
+
+```text
+level
+velocity / first difference
+acceleration / second difference
+relative change
+expectation surprise / innovation
+social-attention level
+social-attention velocity / acceleration
+```
+
+The same event may also need to be interpreted conditionally on the current state and local trajectory, for example:
+
+```math
+z_{t+1}=F(z_t,e_t,\dot z_t,\Delta t).
+```
+
+These are engineering priors, not assumptions to preserve at all costs. They should survive only when ablation tests show incremental out-of-sample predictive or economic value.
+
 ## Hybrid quantum hypothesis
 
 One of the most interesting implementation directions is to use a classical neural network as an interface between real-world information and structured quantum dynamics:
@@ -235,8 +265,9 @@ At every stage, the project may stop and keep the best classical solution. A qua
 - [Learning and design notes](docs/06-learning-and-design-notes.md)
 - [Event semantics, coarse-graining, and non-commutativity](docs/07-event-semantics-and-coarse-graining.md)
 - [Social attention and reflexive dynamics](docs/08-social-attention-and-reflexive-dynamics.md)
+- [Practical tips for a financial World Model](docs/09-financial-world-model-practical-tips.md)
 - [Implementation roadmap](ROADMAP.md)
 
 ## Current status
 
-This repository currently documents the architecture and hypotheses developed through exploratory discussion. The next engineering milestone is a small classical-first PoC with a pluggable `WorldState` backend, including controlled experiments on learned event granularity and social-attention/adoption signals, followed by a 4–8 qubit quantum-compatible implementation and tensor-network comparison.
+This repository currently documents the architecture and hypotheses developed through exploratory discussion. The next engineering milestone is a small classical-first PoC with a pluggable `WorldState` backend, including controlled experiments on learned event granularity, social-attention/adoption signals, and level-vs-change feature ablations, followed by a 4–8 qubit quantum-compatible implementation and tensor-network comparison.
