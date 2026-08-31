@@ -138,7 +138,57 @@ The commercial differentiation should instead come from:
 - migration timing recommendations,
 - accumulated cross-workload benchmark data.
 
-## 10. Representative prior-art areas for deeper review
+## 10. Predictive compression, causal states, and semantic event discovery
+
+The project's event-granularity problem has strong precedents in several research traditions.
+
+### Predictive Information Bottleneck
+
+Creutzig, Globerson, and Tishby, **Past-future information bottleneck in dynamical systems** (2009), formulate the trade-off between compressing the past and retaining information predictive of the future.
+
+- DOI: https://doi.org/10.1103/PhysRevE.79.041925
+
+This is a direct theoretical precedent for learning event representations that retain predictive information while discarding unnecessary historical detail.
+
+### Computational Mechanics / Causal States
+
+Shalizi and Crutchfield, **Computational Mechanics: Pattern and Prediction, Structure and Simplicity** (2001), define causal states as equivalence classes of histories that induce the same conditional future distribution.
+
+- DOI: https://doi.org/10.1023/A:1010388907793
+- arXiv: https://arxiv.org/abs/cond-mat/9907176
+
+This supports the project's operational definition of semantic equivalence: two histories can be treated as the same state/event when doing so does not materially change the predictive distribution over relevant futures.
+
+### Predictive Rate-Distortion
+
+Marzen and Crutchfield, **Predictive Rate-Distortion for Infinite-Order Markov Processes** (2016), develop rate-distortion methods for lossy compression of predictive information.
+
+- DOI: https://doi.org/10.1007/s10955-016-1520-1
+
+This provides a natural foundation for an event-rate versus prediction-distortion curve.
+
+### Mori-Zwanzig coarse-graining
+
+The Mori-Zwanzig projection formalism shows that projecting a high-dimensional Markovian dynamical system onto resolved variables generally introduces memory and fluctuating terms.
+
+A useful review/example is:
+
+- Li et al., **Incorporation of memory effects in coarse-grained modeling via the Mori-Zwanzig formalism** (2015): https://pmc.ncbi.nlm.nih.gov/articles/PMC4644152/
+
+This is highly relevant to the hypothesis that semantic coarse-graining can make effective event dynamics history dependent even when the underlying microscopic flow is deterministic.
+
+### Event Segmentation Theory
+
+Zacks et al., **Event Perception: A Mind-Brain Perspective** (2007), propose that continuous experience is segmented into events through predictive models and that increases in prediction error are associated with event boundaries.
+
+- DOI: https://doi.org/10.1037/0033-2909.133.2.273
+- Full text: https://pmc.ncbi.nlm.nih.gov/articles/PMC2852534/
+
+This provides a conceptual precedent for learning event boundaries from surprise or predictive failure instead of fixing an event ontology in advance.
+
+The project-specific synthesis is to combine predictive compression, learned event segmentation, reduced-state closure, and learned structured event operators in one pipeline.
+
+## 11. Representative prior-art areas for deeper review
 
 The following categories should be tracked continuously:
 
@@ -152,8 +202,12 @@ The following categories should be tracked continuously:
 8. QAE / quantum Monte Carlo / quantum finance
 9. Event-driven multimodal financial prediction
 10. Quantum-readiness / business-value assessment frameworks
+11. Predictive information bottleneck / predictive rate-distortion
+12. Computational mechanics / causal states
+13. Mori-Zwanzig coarse-graining and memory
+14. Event segmentation and change-point discovery
 
-## 11. Patent-search conclusion so far
+## 12. Patent-search conclusion so far
 
 A preliminary search suggests that broad claims around:
 
@@ -178,7 +232,7 @@ into a single backend-adoption decision.
 
 Patent protection is not required for the project. The immediate priority is implementation quality and monetizable prediction/decision value.
 
-## 12. Practical positioning
+## 13. Practical positioning
 
 The project should be described as an integration of established ideas rather than as a claim that every component is new.
 
