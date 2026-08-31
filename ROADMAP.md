@@ -14,11 +14,14 @@ Build a commercially useful predictive world model whose internal backend can ev
 
 **Exit condition:** clear target, forecast query schema, evaluation protocol, and business metric.
 
-## Milestone 1 — Classical baseline
+## Milestone 1 — Classical baseline and event semantics
 
 Implement:
 
-- event normalization,
+- raw observation ingestion,
+- fixed-time and hand-defined event baselines,
+- learned event-boundary proposals,
+- semantic event embeddings,
 - modality-specific encoders,
 - opaque `WorldState`,
 - `update`, `forecast`, `decide`, `evaluate` interfaces,
@@ -30,7 +33,27 @@ Candidate transition models:
 - state-space model,
 - operator/Koopman-inspired model.
 
-**Exit condition:** reproducible backtest with calibrated forecasts and measurable business utility.
+Before quantum escalation, test whether event granularity itself can be learned as a predictive compression problem.
+
+Suggested objective:
+
+```math
+\mathcal L
+=
+\mathcal L_{\text{future}}
++
+\beta\mathcal L_{\text{compression}}
++
+\lambda\mathcal L_{\text{event-rate}}
++
+\eta\mathcal L_{\text{closure}}
++
+\gamma\mathcal L_{\text{dynamics}}.
+```
+
+Measure an event rate-distortion curve and test whether an intermediate semantic scale preserves predictive closure better than either microscopic segmentation or overly coarse event labels.
+
+**Exit condition:** reproducible backtest with calibrated forecasts and measurable business utility, plus evidence that the selected event representation is better than fixed-window and hand-defined alternatives.
 
 ## Milestone 2 — Multi-query world state
 
@@ -68,7 +91,15 @@ U_t=e^{-iH_t\Delta t}.
 
 Use a small 4–8 qubit state-vector simulator first.
 
-**Exit condition:** determine whether structured operator generation is competitive in predictive quality, stability, or representation efficiency.
+In addition to predictive quality, inspect learned event-order sensitivity:
+
+```math
+C_{ij}(z)=\|[A_i,A_j]z\|.
+```
+
+Treat this as a diagnostic for genuine path dependence, event interaction, missing context, or overly coarse state/event representations rather than as a quantity to minimize automatically.
+
+**Exit condition:** determine whether structured operator generation is competitive in predictive quality, stability, or representation efficiency, and whether learned operator interactions are interpretable and reproducible.
 
 ## Milestone 4 — Tensor-network baseline
 
@@ -145,6 +176,9 @@ Every backend should be evaluated on the same dimensions:
 prediction accuracy
 calibration
 multi-query performance
+event rate / semantic compression
+residual memory / closure
+operator consistency
 latency
 memory
 compute cost
